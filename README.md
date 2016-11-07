@@ -34,10 +34,13 @@ The Watson-Customer-Feedback application is a Python web application which uses 
     To delete the database (only required for troubleshooting), in command line:
       
     ```curl -X DELETE -u {username} '{url}/customer_feedback'```
-    
-  Navigate to (inside) project folder
+
+To load the application on the cloud:  
+  - In command line:
   
-    - cf push
+  Navigate to (inside) project folder
+    
+  ```cf push```
   
 Alternatively, the services can be created using the IBM Bluemix dashboard and bound/connected to the application once it has been pushed via CLI (as above).
 
