@@ -62,7 +62,16 @@ As the application makes use of the VCAP services provided by Bluemix to authent
   self.username = "placeYourToneAnalyserServiceUsernameHereAsAString"
   self.password = "placeYourToneAnalyserServicePasswordAsAString"
   ````
-     
+ 3. Start up a local server using python and run the application, in command line:
+ 
+ ```python -m SimpleHTTPServer 5000```
+ 
+ In a separate command line instance, navigate to the project folder and run:
+ 
+ ```python ./server.py```
+ 
+ The application should now be accessible on localhost:5000
+
 ## Troubleshooting ##
 
 Logs for the Bluemix application can be accessed from CLI:
@@ -84,6 +93,8 @@ If network response object indicates that you have made too many requests, this 
    ```curl -X DELETE -u {username} '{url}/customer_feedback'```
    
    ```curl -X PUT -u {username} '{url}/customer_feedback'```
+
+## Resources ##
 
 
   
