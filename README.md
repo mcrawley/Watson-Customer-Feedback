@@ -7,7 +7,7 @@ The Watson-Customer-Feedback application is a Python web application which uses 
 3. Ensure you have curl working on your machine
 3. Connect to Bluemix and create the necessary services and application using the following steps
 
-  To create the services, in command line:
+  **To create the services**, in command line:
 
   ```cf api https://api.au-syd.mybluemix.net```
   
@@ -21,7 +21,7 @@ The Watson-Customer-Feedback application is a Python web application which uses 
   
   ```cf create-service cloudantNoSQLDB Lite cloudant-service```
 
-  To instantiate the database (required for application to work):
+  **To instantiate the database** (required for application to work):
   - Access the cloudant service from the Bluemix console and navigate to service credentials
   - In command line:
     
@@ -35,15 +35,19 @@ The Watson-Customer-Feedback application is a Python web application which uses 
       
     ```curl -X DELETE -u {username} '{url}/customer_feedback'```
 
-To load the application on the cloud:  
+  **To load the application onto the cloud**:  
   - In command line:
   
-  Navigate to (inside) project folder
+    Navigate to (inside) project folder
     
-  ```cf push```
+    ```cf push```
   
 Alternatively, the services can be created using the IBM Bluemix dashboard and bound/connected to the application once it has been pushed via CLI (as above).
 
+  **Running the application in the cloud**
+  
+  To use the audio recording functionality of the application, please ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter.
+  
 # Troubleshooting
 
 Logs for the Bluemix application can be accessed from CLI:
