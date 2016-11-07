@@ -1,6 +1,33 @@
 # Watson-Customer-Feedback
 The Watson-Customer-Feedback application is a Python web application which uses IBM Watson cloud-based services for gathering and analysing verbal customer feedback. Users can record verbal feedback in either English or French, using the microphone in their computer. This audio recording will be converted to text using the Watson Speech To Text service and, when the French language is selected, this text will be translated into English using the Watson Language Translator service. The Watson Tone Analyzer service is then used to analyse the likelihood that tones of anger, disgust, fear, joy or sadness are being expressed in the customer's feedback. This data is stored using IBM's Cloudant database service and a statistical summary of customer feedback to-date is displayed in the application. 
 
+## Functional Requirements ##
+
+- Users must be able to submit verbal comments consisting of 2 -3 sentences to the application using, at worst, an inbuilt microphone in their computer
+- Users must be able to submit verbal comments in languages other than English
+- The application must provide users with a textual display of their comments in English, and where appropriate, the language originally used
+- Tone analysis must be conducted on each instance of customer feedback and results must be retained
+- An accumulative representation of customer feedback results must be displayed to the user upon submission of their own feedback
+- The user should not be able to view current feedback statistics until they have submitted their own feedback
+
+## Non-Functional Requirements ##
+
+- Security
+  - IBM Bluemix account details and individual service credentials should not be exposed in the source code of the application
+- Scalability
+  - The application must be scalable in terms of the number of languages it supports
+  - The application must be scalable in terms of the capacity of the customer feedback database
+- Performance
+  - The application should not take more than 5 seconds to process audio recordings and return results to the user. 
+- Usability
+  - The user interface must be simple to use and require no previous technical knowledge
+  - If issues arise regarding the processing of audio provided by the user, they must be informed in a clear and prompt manner
+- Availability
+  - The application itself and all IBM services should have minimal downtime
+  
+
+
+
 ## Getting Started ##
 1. Create a Bluemix account at https://console.ng.bluemix.net/registration/ or use an existing Bluemix account
 2. Download and install Cloud-foundry CLI tool, available here: https://github.com/cloudfoundry/cli
