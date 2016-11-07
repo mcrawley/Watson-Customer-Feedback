@@ -5,8 +5,8 @@ The Watson-Customer-Feedback application is a Python web application which uses 
 1. Create a Bluemix account at https://console.ng.bluemix.net/registration/ or use an existing Bluemix account
 2. Download and install Cloud-foundry CLI tool, available here: https://github.com/cloudfoundry/cli
 3. Ensure you have curl working on your machine
-3. Connect to Bluemix and create the necessary services and application using the following steps
-
+4. Connect to Bluemix and create the necessary services and application using the following steps
+  
   **To create the services**, in command line:
 
   ```cf api https://api.au-syd.mybluemix.net```
@@ -46,11 +46,11 @@ Alternatively, the services can be created using the IBM Bluemix dashboard and b
 
 ## Running the application in the cloud ##
   
-  To use the audio recording functionality of the application, please ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter.
+  To use the audio recording functionality of the application, please view the application in Chrome and ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter. 
 
 ## Running the application locally ##
 
-As the application makes use of the VCAP services provided by Bluemix to authenticate to each service, the source code must be modified to run the application locally whilel still connecting to the required services. 
+As the application makes use of the VCAP services provided by Bluemix to authenticate to each service, the source code must be modified to run the application locally while still allowing connection to the required services. 
 
  1. Obtain the credentials (username and password) for each service using the Bluemix dashboard. 
  2. In server.py, when initialising each service class (DBService, ToneAnalyserService, LanguageTranslatorService, SpeechToTextService), instantiate the username and password attributes using the credentials. 
@@ -83,7 +83,7 @@ If a 'broken-pipe' is encountered or the application fails to connect to the ser
    - Ensure each service is bound to the application. To do this, navigate to the Bluemix dashboard > select a service > select 'Connections'
    - Check the VCAP services exist for the application. This can be found by selecting the application from the Bluemix dashboard and navigating to Runtime > Environment Variables
 
-If network response object indicates that you have made too many requests, this is unfortunately a limitation of using the Cloudant service with a free/trial Bluemix account. In this situation you can either:
+If the network response object indicates that you have made too many requests, this is unfortunately a limitation of using the Cloudant service with a free/trial Bluemix account. In this situation you can either:
 
 - Wait an undefined period of time to start using the service again (such that your request restrictions are no longer exceeded)
 - If loss of current data is acceptable, delete and recreate the database, following the steps below:
@@ -93,10 +93,33 @@ If network response object indicates that you have made too many requests, this 
    ```curl -X DELETE -u {username} '{url}/customer_feedback'```
    
    ```curl -X PUT -u {username} '{url}/customer_feedback'```
+   
+## Code Repository ##
+The code repository is summarised as follows:
+ - The templates folder contains index.html for the application's markup and inline styling
+ - script.js is required for recording and uploading audio and to make an AJAX request when a user stops the audio recording
+ - recorder.js is an open source project used to capture and upload audio recordings as .wav files
+ - server.py is the backend program resopnsible for routing, making HTTP requests to IBM services and rendering the html page
+ - requirements.txt contains project dependencies
+ - manifest.yml is used when uploading the application to the cloud and for subsequent updates. This file contains the name and hostname of the application which is important when managing applications in Bluemix
+ - The version of Python being used can be found in runtime.txt
 
 ## Resources ##
 
+- To integrate Watson services with a Python web application a github project, available at https://github.com/watson-developer-cloud/text-to-speech-python was used as a reference. This project details how to use VCAP services for service authentication, how to structure a basic Python application using the Flask framework and how to make requests to services.
 
+- Watson Developer Cloud API Documentation was used when implementing the service request, specifically available at:
+ - http://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/
+ - https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/
+ - http://www.ibm.com/watson/developercloud/language-translator/api/v2/
+ 
+- To troubleshoot problems experienced during integration of cloud services with the web application, the IBM Developer Works discussion forum was used.
+
+- To use the Cloudant service with a Python application, an IBM blog article was used (https://cloudant.com/blog/using-python-with-cloudant/#.WCAV55N97GI) and couchDB documentation was used as a supporting reference (https://pythonhosted.org/CouchDB/getting-started.html).
+
+- To implement audio recording and uploading functionality the source code from a sample project, available at https://webaudiodemos.appspot.com/AudioRecorder/index.html, was used as a reference. recorder.js is an open source github project available at https://github.com/mattdiamond/Recorderjs which is used by the web application to record and upload audio as a .wav file. 
+
+ 
   
 
   
