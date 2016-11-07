@@ -1,7 +1,7 @@
 # Watson-Customer-Feedback
 The Watson-Customer-Feedback application is a Python web application which uses IBM Watson cloud-based services for gathering and analysing verbal customer feedback. Users can record verbal feedback in either English or French, using the microphone in their computer. This audio recording will be converted to text using the Watson Speech To Text service and, when the French language is selected, this text will be translated into English using the Watson Language Translator service. The Watson Tone Analyzer service is then used to analyse the likelihood that tones of anger, disgust, fear, joy or sadness are being expressed in the customer's feedback. This data is stored using IBM's Cloudant database service and a statistical summary of customer feedback to-date is displayed in the application. 
 
-# Getting Started
+## Getting Started ##
 1. Create a Bluemix account at https://console.ng.bluemix.net/registration/ or use an existing Bluemix account
 2. Download and install Cloud-foundry CLI tool, available here: https://github.com/cloudfoundry/cli
 3. Ensure you have curl working on your machine
@@ -44,11 +44,26 @@ The Watson-Customer-Feedback application is a Python web application which uses 
   
 Alternatively, the services can be created using the IBM Bluemix dashboard and bound/connected to the application once it has been pushed via CLI (as above).
 
-  **Running the application in the cloud**
+## Running the application in the cloud ##
   
   To use the audio recording functionality of the application, please ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter.
-  
-# Troubleshooting
+
+## Running the application locally ##
+
+As the application makes use of the VCAP services provided by Bluemix to authenticate to each service, the source code must be modified to run the application locally whilel still connecting to the required services. 
+
+ 1. Obtain the credentials (username and password) for each service using the Bluemix dashboard. 
+ 2. In server.py, when initialising each service class (DBService, ToneAnalyserService, LanguageTranslatorService, SpeechToTextService), instantiate the username and password attributes using the credentials. 
+ 
+ Example:
+  ```` 
+  class ToneAnalyserService(object):
+  def __init__(self,object):
+  self.username = "placeYourToneAnalyserServiceUsernameHereAsAString"
+  self.password = "placeYourToneAnalyserServicePasswordAsAString"
+  ````
+     
+## Troubleshooting ##
 
 Logs for the Bluemix application can be accessed from CLI:
 
@@ -56,8 +71,8 @@ Logs for the Bluemix application can be accessed from CLI:
   
 If a 'broken-pipe' is encountered or the application fails to connect to the services:
 
-    - Ensure each service is bound to the application. To do this, navigate to the Bluemix dashboard > select a service > select 'Connections'
-    - Check the VCAP services exist for the application. This can be found by selecting the application from the Bluemix dashboard and navigating to Runtime > Environment Variables
+   - Ensure each service is bound to the application. To do this, navigate to the Bluemix dashboard > select a service > select 'Connections'
+   - Check the VCAP services exist for the application. This can be found by selecting the application from the Bluemix dashboard and navigating to Runtime > Environment Variables
 
 If network response object indicates that you have made too many requests, this is unfortunately a limitation of using the Cloudant service with a free/trial Bluemix account. In this situation you can either:
 
@@ -65,7 +80,9 @@ If network response object indicates that you have made too many requests, this 
 - If loss of current data is acceptable, delete and recreate the database, following the steps below:
 
   - In command line:
+  
    ```curl -X DELETE -u {username} '{url}/customer_feedback'```
+   
    ```curl -X PUT -u {username} '{url}/customer_feedback'```
 
 
