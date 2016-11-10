@@ -58,6 +58,7 @@ The Watson-Customer-Feedback application is a Python web application which uses 
     ```curl -X DELETE -u {username} '{url}/customer_feedback'```
 
   **To load the application onto the cloud**:  
+  - Clone the project
   - In command line:
   
     Navigate to (inside) project folder
