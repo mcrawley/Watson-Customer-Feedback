@@ -1,0 +1,30 @@
+---
+declared-services:
+  language-translator-service:
+    type: language_translator
+    plan: standard
+  speech-to-text-service:
+    type: speech_to_text
+    plan: standard
+  tone-analyzer-service:
+    type: tone_analyzer
+    plan: standard
+  cloudant-service:
+    type: cloudantNoSQLDB
+    plan: Lite
+
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: au-syd.mybluemix.net
+  name: customer-feedback-project
+  host: customer-feedback-project
+  disk_quota: 1024M
+  buildpack: python_buildpack
+  services:
+  - language-translator-service
+  - speech-to-text-service
+  - tone-analyzer-service
+  - cloudant-service
+
