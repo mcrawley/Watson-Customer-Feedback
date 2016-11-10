@@ -81,7 +81,7 @@ Alternatively, the services can be created using the IBM Bluemix dashboard and b
   with:
   
   audio = open('./samples/filename.flac', 'rb')
-  ```self.r = requests.post(self.url,data=audio, headers={'Content-Type':'audio/wav'}, params={'model':model}, auth=(self.username,self.password))```
+  ```self.r = requests.post(self.url,data=audio, headers={'Content-Type':'audio/flac'}, params={'model':model}, auth=(self.username,self.password))```
 
 ## Running the application locally ##
 
