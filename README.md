@@ -70,8 +70,18 @@ Alternatively, the services can be created using the IBM Bluemix dashboard and b
 ## Running the application in the cloud ##
   
   To use the audio recording functionality of the application, please view the application in Chrome and ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter. 
+
+## Testing the application ##   
+  Sample English and French .m4a audio files are available in the repository in the samples folder. To test the application, press the Start Recording button and play the audio at the same time. When played at full volume, this audio should be detected by an inbuilt microphone and produce results sufficient for demonstration purposes. Please note, the accuracy of the speech to text and translation services will be compromised by low volume or lack of clarity. 
   
-  Sample English and French audio is available in the repository in the samples folder. When played at full volume, this audio will be detected by the application and produce results sufficient for demonstration purposes. Please note, the accuracy of the speech to text and translation services will be compromised by low volume or lack of clarity. 
+  Alternatively, sample .flac files are available in the samples folder. To use these directly, in server.py replace the following code:
+  
+  ```self.r = requests.post(self.url,data=object, headers={'Content-Type':'audio/wav'}, params={'model':model}, auth=(self.username,self.password))```
+  
+  with:
+  
+  audio = open('./samples/filename.flac', 'rb')
+  ```self.r = requests.post(self.url,data=audio, headers={'Content-Type':'audio/wav'}, params={'model':model}, auth=(self.username,self.password))```
 
 ## Running the application locally ##
 
