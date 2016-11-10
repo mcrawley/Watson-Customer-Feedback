@@ -3,30 +3,25 @@ The Watson-Customer-Feedback application is a Python web application which uses 
 
 ## Functional Requirements ##
 
-- Users must be able to submit verbal comments consisting of 2 -3 sentences to the application using, at worst, an inbuilt microphone in their computer
-- Users must be able to submit verbal comments in languages other than English
-- The application must provide users with a textual display of their comments in English, and where appropriate, the language originally used
-- Tone analysis must be conducted on each instance of customer feedback and results must be retained
-- An accumulative representation of customer feedback results must be displayed to the user upon submission of their own feedback
-- The user should not be able to view current feedback statistics until they have submitted their own feedback
+- Users are able to submit verbal comments consisting of 2 -3 sentences to the application using, at worst, an inbuilt microphone in their computer
+- Users are able to submit verbal comments in languages other than English
+- The application will provide users with a textual display of their comments in English, and where appropriate, the language originally used
+- Tone analysis will be conducted on each instance of customer feedback and results will be retained
+- An accumulative representation of customer feedback results will be displayed to the user upon submission of their own feedback
+- The user will not be able to view current feedback statistics until they have submitted their own feedback
 
 ## Non-Functional Requirements ##
 
 - Security
   - IBM Bluemix account details and individual service credentials should not be exposed in the source code of the application
 - Scalability
-  - The application must be scalable in terms of the number of languages it supports
-  - The application must be scalable in terms of the capacity of the customer feedback database
-- Performance
-  - The application should not take more than 5 seconds to process audio recordings and return results to the user. 
+  - The application is scalable in terms of the number of languages it supports
+  - The application is scalable in terms of the capacity of the customer feedback database
 - Usability
-  - The user interface must be simple to use and require no previous technical knowledge
-  - If issues arise regarding the processing of audio provided by the user, they must be informed in a clear and prompt manner
+  - The user interface is simple to use and requires no previous technical knowledge
+  - If issues arise regarding the processing of audio provided by the user, they will be informed in a clear and prompt manner
 - Availability
-  - The application itself and all IBM services should have minimal downtime
-  
-
-
+  - The application itself and all IBM services will have minimal downtime
 
 ## Getting Started ##
 1. Create a Bluemix account at https://console.ng.bluemix.net/registration/ or use an existing Bluemix account
@@ -74,6 +69,8 @@ Alternatively, the services can be created using the IBM Bluemix dashboard and b
 ## Running the application in the cloud ##
   
   To use the audio recording functionality of the application, please view the application in Chrome and ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter. 
+  
+  Sample English and French audio is available in the repository in the Samples folder. When played at full volume, this audio will be detected by the application and produce results sufficient for demonstration purposes. Please note, the accuracy of the speech to text and translation services will be compromised by low volume or lack of clarity. 
 
 ## Running the application locally ##
 
