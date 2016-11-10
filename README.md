@@ -87,7 +87,8 @@ As the application makes use of the VCAP services provided by Bluemix to authent
   self.username = "placeYourToneAnalyserServiceUsernameHereAsAString"
   self.password = "placeYourToneAnalyserServicePasswordAsAString"
   ````
- 3. Start up a local server using python and run the application, in command line:
+ 3. Ensure you have python and all project dependencies installed on your machine
+ 4. Start up a local server using python and run the application, in command line:
  
  ```python -m SimpleHTTPServer 5000```
  
