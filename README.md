@@ -70,7 +70,7 @@ Alternatively, the services can be created using the IBM Bluemix dashboard and b
   
   To use the audio recording functionality of the application, please view the application in Chrome and ensure 'https://' is present at the start of the application url when viewing the application from Bluemix. If not, simply add to the start of the url and press Enter. 
   
-  Sample English and French audio is available in the repository in the Samples folder. When played at full volume, this audio will be detected by the application and produce results sufficient for demonstration purposes. Please note, the accuracy of the speech to text and translation services will be compromised by low volume or lack of clarity. 
+  Sample English and French audio is available in the repository in the samples folder. When played at full volume, this audio will be detected by the application and produce results sufficient for demonstration purposes. Please note, the accuracy of the speech to text and translation services will be compromised by low volume or lack of clarity. 
 
 ## Running the application locally ##
 
