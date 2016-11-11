@@ -1,3 +1,5 @@
+
+//Audio recording functionality
 var errorCallback = function(e)
 {
     console.log("not working")
@@ -39,6 +41,8 @@ function startRecording(){
 
 function stopRecording() {
   recorder.stop();
+
+  // Conversion of audio recording to WAV file and file upload
   recorder.exportWAV(function(blob) {
      var url = window.URL.createObjectURL(blob);
      var language = $('#languageDropdown').val()
@@ -46,6 +50,8 @@ function stopRecording() {
      data.append('file', blob);
      data.append('language', language);
 
+
+    // Ajax request to backend upon recording completion
     $.ajax({
       url: '/speechToText',
       type: 'POST',
@@ -55,6 +61,7 @@ function stopRecording() {
       success: function(response) {
         parsed = JSON.parse(response)
         $('#count').text(parsed['count'])
+        //Create chart of tone analysis results
         var ctx = $('#chart')
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -96,6 +103,7 @@ function stopRecording() {
             }
         });
 
+        //Provide original and translated text on user interface
         $('#translatedText').text(parsed['translatedText'])
         $('#originalText').text(parsed['originalText'])
       
