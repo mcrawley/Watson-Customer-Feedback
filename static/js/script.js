@@ -102,7 +102,7 @@ function stopRecording() {
                 }
             }
         });
-
+        myChart.options.legend.display = false; 
         //Provide original and translated text on user interface
         $('#translatedText').text(parsed['translatedText'])
         $('#originalText').text(parsed['originalText'])
