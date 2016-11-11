@@ -143,16 +143,16 @@ The code repository is summarised as follows:
 
 ## Resources ##
 
-- To integrate Watson services with a Python web application a github project, available at https://github.com/watson-developer-cloud/text-to-speech-python was used as a reference. This project details how to use VCAP services for service authentication, how to structure a basic Python application using the Flask framework and how to make requests to services.
+- To integrate Watson services with a Python web application a github project, available at https://github.com/watson-developer-cloud/text-to-speech-python was used as a reference. The example project creates an application using the text-to-speech service, whereas this Watson-Customer-Feedback project uses IBM's speech-to-text, language translator and tone-analyser services. Therefore, the example project was only useful as a guide for details such as using VCAP services for service authentication, how to structure a basic Python application using the Flask framework and how to make requests to IBM services. 
 
-- Watson Developer Cloud API Documentation was used when implementing the service request, specifically available at:
+- Watson Developer Cloud API Documentation was used when implementing the specific service requests, available at:
  - http://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/
  - https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/
  - http://www.ibm.com/watson/developercloud/language-translator/api/v2/
  
 - To troubleshoot problems experienced during integration of cloud services with the web application, the IBM Developer Works discussion forum was used.
 
-- To use the Cloudant service with a Python application, an IBM blog article was used (https://cloudant.com/blog/using-python-with-cloudant/#.WCAV55N97GI) and couchDB documentation was used as a supporting reference (https://pythonhosted.org/CouchDB/getting-started.html).
+- To use the Cloudant service with a Python application, an IBM blog article was used as a starting point (https://cloudant.com/blog/using-python-with-cloudant/#.WCAV55N97GI) and couchDB documentation was used as a supporting reference (https://pythonhosted.org/CouchDB/getting-started.html).
 
 - To implement audio recording and uploading functionality the source code from a sample project, available at https://webaudiodemos.appspot.com/AudioRecorder/index.html, was used as a reference. recorder.js is an open source github project available at https://github.com/mattdiamond/Recorderjs which is used by the web application to record and upload audio as a .wav file. 
 
